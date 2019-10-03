@@ -11,7 +11,6 @@ WORKDIR /home/
 RUN chmod +x gen-cer
 RUN ./gen-cer fadil.info
 RUN mv fadil.info.pem /etc/ssl/private
-CMD ["httpd"]
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["httpd","-D","FOREGROUND"]
 
 
