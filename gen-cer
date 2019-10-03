@@ -1,0 +1,22 @@
+#!/bin/bash
+domain=$1
+commonname=$domain
+country=MA
+state=GRANDCASABLANCA
+locality=CASABLANCA
+organization=fadil.info
+organizationalunit=MA
+email=h.fadil7@gmail.com
+password=123456
+if [ -z "$domain" ]
+then
+    echo "Argument not present."
+    echo "Useage $0 [common name]"
+    exit 99
+fi
+openssl genrsa -des3 -passout pass:$password -out $domain.key 2048 -noout
+openssl rsa -in $domain.key -passin pass:$password -out $domain.key
+openssl req -new -key $domain.key -out $domain.csr \
+    -subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
+openssl x509 -req -days 365 -in $domain.csr -signkey $domain.key -sha256 -out $domain.crt
+openssl x509 -in $domain.crt -out $domain.pem -outform PEM
