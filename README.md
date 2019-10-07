@@ -17,6 +17,9 @@ It will redirect automatically to HTTPS (port 443).
 I was asked in the test to benchmark the docker container through 10 concurrent connection with 10000 requests.
 I chose to use ApacheBenchmark included in the apache2-utils.
 It's a neat tool that can output reports including response time and percentage served.
+
+| WARNING: Benchmarking may vary depending on your configuration, i'm using my vps as a host and a laptop running the ApacheBenchmark program. |
+| --- |
 I attached a detailed report to the email but I'll include a summary here :
 
 * Server Software:Apache/2.4.6 
