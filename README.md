@@ -17,18 +17,18 @@ I chose to use ApacheBenchmark included in the apache2-utils.
 It's a neat tool that can output reports including response time and percentage served.
 I attached a detailed report to the email but I'll include a summary here :
 
-> * Server Software:Apache/2.4.6 
-> * Server Hostname:fadil.info 
-> * Server Port:443 
-> * Document Path:/ 
-> * Document Length:760 bytes 
-> * Concurrency Level:10 
-> * Time taken for tests:372.200 seconds 
-> * Complete requests:10000 
-> * Failed requests:0
-> * Total transferred:10890000 bytes 
-> * HTML transferred:7600000 bytes 
-> * Requests per second:26.87
+* Server Software:Apache/2.4.6 
+* Server Hostname:fadil.info 
+* Server Port:443 
+* Document Path:/ 
+* Document Length:760 bytes 
+* Concurrency Level:10 
+* Time taken for tests:372.200 seconds 
+* Complete requests:10000 
+* Failed requests:0
+* Total transferred:10890000 bytes 
+* HTML transferred:7600000 bytes 
+* Requests per second:26.87
 
 
 **Connection times**
