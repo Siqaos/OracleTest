@@ -21,8 +21,15 @@ The certificate is self-generated everytime the image is built ( unless it's cac
 after running the docker container you can access it through http://localhost (or in my case fadil.info)
 It will redirect automatically to HTTPS (port 443).
 
+![Breakout online at fadil.info using https](https://github.com/Siqaos/OracleTest/blob/master/images/breakout.png)
+
+You can see the self signed certificate here :
+
+![Selfsigned certificate](https://github.com/Siqaos/OracleTest/blob/master/images/selfsigned.png)
+
 ## Benchmark
 I was asked in the test to benchmark the docker container through 10 concurrent connection with 10000 requests.
+In the beginning I taught about creating my own python program, but figured that I should just use something already made than reinventing the wheel.
 I chose to use ApacheBenchmark included in the apache2-utils.
 It's a neat tool that can output reports including response time and percentage served.
 
@@ -30,12 +37,6 @@ It's a neat tool that can output reports including response time and percentage 
 | --- |
 
 I'm using my VPS as a host and a laptop running the ApacheBenchmark program.
-
-![Breakout online at fadil.info using https](https://github.com/Siqaos/OracleTest/blob/master/images/breakout.png)
-
-You can see the self signed certificate here :
-
-![enter image description here](https://github.com/Siqaos/OracleTest/blob/master/images/selfsigned.png)
 
 Here is the output of the benchmark as well as graphs :
 
@@ -67,11 +68,31 @@ Here is the output of the benchmark as well as graphs :
 
 ![Apache Benchmark output](https://github.com/Siqaos/OracleTest/blob/master/images/ab.png)
 
+For comparaison sake, I tried another program called Weighttp that is the same as ApacheBench but use multithreading to send concurrent requests.
+Since Weighttp doesn't support ssl yet, the http response is 3XX (normal since the haproxy service automatically redirects http to https.
+Doesn't give much details about the response time but shows that the server process around the same requests per second as ApacheBench.
+
+![Weighttp](https://github.com/Siqaos/OracleTest/blob/master/images/weighttp.png)
+
+![Apache Benchmark output](https://github.com/Siqaos/OracleTest/blob/master/images/ab.png)
+
+From the apache benchmark output we can see that the server start struggling around the end to respond to the requests, load balancing is a solution to remediate to this issue, more into that in the next chapter.
+
 ## Dockerfile weaknesses
 
 Because of the challenge restriction to build a **single** docker image, the ability to spread the service into micro services (having apache:alpine and a haproxy run separately), as well as size optimizations, is lost.
 Here is the current docker image architecture :
 
+![Current image architecture](https://github.com/Siqaos/OracleTest/blob/master/images/currentarch.png)
+
+As an example, here's a more flexible architecture to our docker container, we could use a smaller docker image containing an apache server that we could scale, as well as a shared volume ( or multiple depending on the demand ), and a load balancer that will round robin between the servers.
+Scattering the services across multiple image make the administration and scaling easier :
+
+![Current image architecture](https://github.com/Siqaos/OracleTest/blob/master/images/possiblearch.png)
+
+Although this is from a **beginner persective**, I have still a lot to learn and this is just the beginning.
+
+Not to forget the security issues, regarding the self-signed certificate 
 
 ## Thank you
 I would like to thank Alexandra for giving me this opportunity and her time, it was a pleasure talking with you,
