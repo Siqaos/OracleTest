@@ -1,3 +1,4 @@
+
 # PGX DevOps technical challenge
 This repository include all necessary files to build and run the docker image asked as a technical test for the PGX DevOps job offer.
 # Installation
@@ -21,9 +22,11 @@ It's a neat tool that can output reports including response time and percentage 
 | WARNING: Benchmarking may vary depending on your configuration. |
 | --- |
 
-I'm using my vps as a host and a laptop running the ApacheBenchmark program.
-
-I attached a detailed report to the email but I'll include a summary here :
+I'm using my VPS as a host and a laptop running the ApacheBenchmark program.
+![Breakout online at fadil.info using https](https://github.com/Siqaos/OracleTest/blob/master/images/breakout.png)
+You can see the self signed certificate here :
+![enter image description here](https://github.com/Siqaos/OracleTest/blob/master/images/selfsigned.png)
+Here is the output of the benchmark as well as graphs :
 
 * Server Software:Apache/2.4.6 
 * Server Hostname:fadil.info 
@@ -47,9 +50,11 @@ I attached a detailed report to the email but I'll include a summary here :
 |Processing|80|93|212
 |Total|296|371|1627
 
+![Sequence](https://github.com/Siqaos/OracleTest/blob/master/images/sequence.jpg)
+
+![Timeseries](https://github.com/Siqaos/OracleTest/blob/master/images/timeseries.jpg)
+
 ## Thank you
 I would like to thank Alexandra for giving me this opportunity and her time, it was a pleasure talking with you,
 I am confident that my skills will allow me to come in and succeed in this role, and it’s a position I’d be excited to take on because it will help me improve and acquire skills in both development and operations.
 Thank you for taking the time to evaluate this work, I'm optimistic that this collaboration will be fruitful.
-
-
