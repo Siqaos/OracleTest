@@ -11,12 +11,10 @@ docker-compose build
 docker-compose up -d
 ```
 
-You could also use docker image stored in docker hub as the following :
+Alternatively, you could also use the docker image stored in docker hub as the following :
 ```bash
 docker pull siqaos/oracletest
-docker run -it siqaos/oracletest
-docker-compose build
-docker-compose up -d
+docker run -d -p 0.0.0.0:443:443 -p 0.0.0.0:8080:80 siqaos/oracletest bash -c "httpd && haproxy -f /etc/haproxy/haproxy.cfg && tail -f /dev/null"
 ```
 ## Information
 The certificate is self-generated everytime the image is built ( unless it's cached ).
