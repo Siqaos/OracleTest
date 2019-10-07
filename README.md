@@ -74,9 +74,7 @@ Doesn't give much details about the response time but shows that the server proc
 
 ![Weighttp](https://github.com/Siqaos/OracleTest/blob/master/images/weighttp.png)
 
-![Apache Benchmark output](https://github.com/Siqaos/OracleTest/blob/master/images/ab.png)
-
-From the apache benchmark output we can see that the server start struggling around the end to respond to the requests, load balancing is a solution to remediate to this issue, more into that in the next chapter.
+From the apache benchmark output we can see that the server struggling around the end to respond to the requests, load balancing is a solution to remediate to this issue, more into that in the next chapter.
 
 ## Dockerfile weaknesses
 
