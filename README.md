@@ -4,6 +4,8 @@ This repository include all necessary files to build and run the docker image as
 All that is needed is a docker installation on your machine.
 Use docker-compose command to build and run in detached mode.
 ```bash
+git clone https://github.com/siqaos/oracletest.git
+cd oracletest
 docker-compose build
 docker-compose up -d
 ```
