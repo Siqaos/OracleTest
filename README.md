@@ -49,9 +49,11 @@ Here is the output of the benchmark as well as graphs :
 |Connect|216|278 |1415
 |Processing|80|93|212
 |Total|296|371|1627
+
 ![Sequence](https://github.com/Siqaos/OracleTest/blob/master/images/sequence.jpg)
 
 ![Timeseries](https://github.com/Siqaos/OracleTest/blob/master/images/timeseries.jpg)
+
 ## Thank you
 I would like to thank Alexandra for giving me this opportunity and her time, it was a pleasure talking with you,
 I am confident that my skills will allow me to come in and succeed in this role, and it’s a position I’d be excited to take on because it will help me improve and acquire skills in both development and operations.
