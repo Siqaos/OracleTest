@@ -92,8 +92,18 @@ Scattering the services across multiple image make the administration and scalin
 
 Although this is from a **beginner persective**, I have still a lot to learn and this is just the beginning.
 
-Not to forget the security issues, regarding the self-signed certificate 
+The simplifications used in this Dockerfile are many :
+* Self-generated OpenSSL certificate.
+* Git cloning directly from a non controlled public Github repository.
+* Not using specific version for the oraclelinux image.
+* Using a bigger package rather than a specific image for the task ( i.e httpd:<version>-alpine )
+These simplifications either poses security threats or simply are unoptimized for a production environnement.
+  
+## Conclusion
 
+I learned a lot in this Tech challenge, I learned how to operate with Haproxy, Gnuplot, dived more into Docker, I'm happy I have come this far.
+I wish to learn more and dive deeper into DevOps, see how testing is done, and work in an experienced and unified team to produce a common result.
+  
 ## Thank you
 I would like to thank Alexandra for giving me this opportunity and her time, it was a pleasure talking with you,
 I am confident that my skills will allow me to come in and succeed in this role, and it’s a position I’d be excited to take on because it will help me improve and acquire skills in both development and operations.
