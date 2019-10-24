@@ -3,7 +3,7 @@
 This repository include all necessary files to build and run the docker image asked as a technical test for the PGX DevOps job offer.
 # Installation
 All that is needed is a docker installation on your machine.
-Use docker-compose command to build and run in detached mode.
+Modify the build args username, password and domain to suit your usecase :
 ```bash
 git clone https://github.com/siqaos/oracletest.git
 cd oracletest
