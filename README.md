@@ -14,7 +14,7 @@ docker run -d -p 80:8000 -p 443:443 oracleweb
 Alternatively, you could also use the docker image stored in docker hub as the following :
 ```bash
 docker pull siqaos/oracleweb
-docker run -d -p 443:443 -p 8080:80 siqaos/oracleweb
+docker run -d -p 443:443 -p 8000:80 siqaos/oracleweb
 ```
 ## Information
 The certificate is self-generated everytime the image is built ( unless it's cached ).
