@@ -1,8 +1,0 @@
-version: '3'
-services:
-  web:
-    build: .
-    command: bash -c "httpd && haproxy -f /etc/haproxy/haproxy.cfg && tail -f /dev/null"
-    ports: 
-        - "80:8080"
-        - "443:443"
