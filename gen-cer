@@ -1,22 +1,23 @@
 #!/bin/bash
 domain=$1
-commonname=$domain
+commonname=$1
 country=MA
 state=GRANDCASABLANCA
 locality=CASABLANCA
-organization=fadil.info
+organization=$1
 organizationalunit=MA
-email=h.fadil7@gmail.com
-password=123456
-if [ -z "$domain" ]
+email=test@test.com
+password=$2
+if [ -z "$1" ]
 then
     echo "Argument not present."
     echo "Useage $0 [common name]"
     exit 99
 fi
-openssl genrsa -des3 -passout pass:$password -out $domain.key 2048 -noout
+openssl genrsa -des3 -passout pass:$password -out $domain.key 2048
 openssl rsa -in $domain.key -passin pass:$password -out $domain.key
 openssl req -new -key $domain.key -out $domain.csr \
     -subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
 openssl x509 -req -days 365 -in $domain.csr -signkey $domain.key -sha256 -out $domain.crt
-cat fadil.info.crt fadil.info.key > fadil.info.pem
+cat fadil.info.crt fadil.info.key > key.pem
+
