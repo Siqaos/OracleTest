@@ -3,18 +3,18 @@
 This repository include all necessary files to build and run the docker image asked as a technical test for the PGX DevOps job offer.
 # Installation
 All that is needed is a docker installation on your machine.
-Use docker-compose command to build and run in detached mode.
+Modify the build args username, password and domain to suit your usecase :
 ```bash
 git clone https://github.com/siqaos/oracletest.git
 cd oracletest
-docker-compose build
-docker-compose up -d
+docker build . -t oracleweb --build-arg username=[username] --build-arg password=[password] --build-arg domain=[domain]
+docker run -d -p 80:8080 -p 443:443 oracleweb
 ```
 
 Alternatively, you could also use the docker image stored in docker hub as the following :
 ```bash
-docker pull siqaos/oracletest
-docker run -d -p 0.0.0.0:443:443 -p 0.0.0.0:8080:80 siqaos/oracletest bash -c "httpd && haproxy -f /etc/haproxy/haproxy.cfg && tail -f /dev/null"
+docker pull siqaos/oracleweb
+docker run -d -p 443:443 -p 8080:80 siqaos/oracleweb
 ```
 ## Information
 The certificate is self-generated everytime the image is built ( unless it's cached ).
